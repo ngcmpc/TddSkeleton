@@ -9,7 +9,19 @@ public class RomanNumberalKata {
     }
 
     public String convert(int i) {
-        return this.convertUnder4(i);
+        if (i < 4) {
+            return convertUnder4(i);
+        } else if (i == 4) {
+            return "IV";
+        } else if (i == 5) {
+            return "V";
+        } else if (i < 9) {
+            return "V" + convertUnder4(i-5);
+        } else if (i == 9) {
+            return "IX";
+        } else  {
+            return "X";
+        }
     }
 
     private String convertUnder4(int input) {
