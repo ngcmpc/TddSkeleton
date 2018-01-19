@@ -49,4 +49,28 @@ public class RomanNumeralsKataTest {
 	}
 
 
+	@Test
+	public void canConvertIntegerBiggerthan10AndLessThan100ToRomanNumeral() {
+		RomanNumberalKata converter = new RomanNumberalKata();
+
+		String romanNumber = "";
+
+		romanNumber = converter.convert(11);
+		assertThat(romanNumber,is("XI"));
+
+		romanNumber = converter.convert(19);
+		assertThat(romanNumber,is("XIX"));
+
+		romanNumber = converter.convert(20);
+		assertThat(romanNumber,is("XX"));
+
+		romanNumber = converter.convert(45);
+		assertThat(romanNumber, is("XLV"));
+
+		romanNumber = converter.convert(67);
+		assertThat(romanNumber, is("LXVII"));
+
+		romanNumber = converter.convert(99);
+		assertThat(romanNumber, is("XCIX"));
+	}
 }
