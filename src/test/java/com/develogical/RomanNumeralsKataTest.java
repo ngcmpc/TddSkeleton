@@ -14,4 +14,16 @@ public class RomanNumeralsKataTest {
 		assertThat(romanNumber,is("I"));
 	}
 
+	@Test
+	public void canConvertIntegerLessThan4ToRomanNumeral() {
+		RomanNumberalKata converter = new RomanNumberalKata();
+
+		String romanNumber = "";
+		romanNumber = converter.convert(2);
+		assertThat(romanNumber,is("II"));
+
+		romanNumber = converter.convert(3);
+		assertThat(romanNumber,is("III"));
+	}
+
 }
