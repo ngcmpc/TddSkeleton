@@ -1,33 +1,41 @@
 package com.develogical;
 
+import java.util.HashMap;
+import java.util.HashSet;
+
 public class RomanNumberalKata {
 
-    private String I;
+
+    private HashMap<Integer, String>  baseSet;
 
     public RomanNumberalKata() {
-        this.I = "I";
+        this.baseSet = new HashMap<Integer, String>();
+        this.baseSet.put(1, "I");
+        this.baseSet.put(5, "V");
+        this.baseSet.put(10, "X");
     }
 
     public String convert(int i) {
-        if (i < 4) {
-            return convertUnder4(i);
-        } else if (i == 4) {
-            return "IV";
-        } else if (i == 5) {
-            return "V";
-        } else if (i < 9) {
-            return "V" + convertUnder4(i-5);
-        } else if (i == 9) {
-            return "IX";
-        } else  {
-            return "X";
+        String result = "";
+        if (this.baseSet.containsKey(i)) {
+            result = this.baseSet.get(i);
         }
+        if (i < 4) {
+            result = convertUnder4(i);
+        } else if (i == 4) {
+            result =  "IV";
+        } else if (i < 9) {
+            result = "V" + convertUnder4(i-5);
+        } else if (i == 9) {
+            result = "IX";
+        }
+        return result;
     }
 
-    private String convertUnder4(int input) {
+    private String convertUnder4(Integer input) {
         String result = "";
         for(int i = 0 ; i < input; i++ ) {
-            result += "I";
+            result += this.baseSet.get(1);
         }
         return result;
     }
